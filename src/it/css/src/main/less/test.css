@@ -1,0 +1,8 @@
+ul.user-graph>li .graph-bar{
+    display:block;
+    position:absolute;
+    bottom:23px;
+    width:100%;
+    background:#ddd;
+    border-radius:2px
+}

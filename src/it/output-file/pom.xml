@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.mule.tools.recess.it</groupId>
+    <artifactId>output-file</artifactId>
+    <version>testing</version>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.mule.tools.javascript</groupId>
+                <artifactId>recess-maven-plugin</artifactId>
+                <version>@project.version@</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>recess</goal>
+                        </goals>
+                        <configuration>
+                            <compress>true</compress>
+                            <outputFile>${project.build.directory}/${project.build.finalName}/result.css</outputFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
