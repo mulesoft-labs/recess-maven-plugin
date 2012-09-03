@@ -192,10 +192,6 @@ public class RecessMojo extends AbstractJavascriptMojo {
 
         new File(getJavascriptFilesDirectory()).mkdirs();
 
-        File outputDirectoryFile = new File(outputDirectory);
-
-
-
         if ( outputFile != null ) {
             log.debug("outputFile parameter found. Using it to store the result.");
             new Recess(files, getRecessConfig(), outputFile, true, getJavascriptFilesDirectory(), outputDirectory).run();
