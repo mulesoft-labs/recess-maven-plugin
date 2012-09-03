@@ -22,6 +22,7 @@
     <properties>
         <license.plugin.version>1.8.0</license.plugin.version>
         <maven.version>3.0.4</maven.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <build>
@@ -120,6 +121,7 @@
                         <exclude>**/*.csv</exclude>
                         <exclude>**/*.css</exclude>
                         <exclude>**/*.fmt</exclude>
+                        <exclude>**/*.less</exclude>
                         <exclude>.checkstyle</exclude>
                         <exclude>README.md</exclude>
                         <exclude>
