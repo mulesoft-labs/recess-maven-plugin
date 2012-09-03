@@ -4,7 +4,6 @@
     <groupId>org.mule.tools.recess.it</groupId>
     <artifactId>basic</artifactId>
     <version>testing</version>
-    <packaging>jar</packaging>
 
     <build>
         <plugins>
