@@ -20,6 +20,8 @@ package org.mule.tools.recess;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
 import org.codehaus.plexus.util.Scanner;
+import org.mule.tools.rhinodo.impl.WrappingConsoleFactory;
+import org.mule.tools.rhinodo.maven.MavenConsole;
 
 import java.io.File;
 import java.util.HashMap;
@@ -194,14 +196,16 @@ public class RecessMojo extends AbstractJavascriptMojo {
 
         if ( outputFile != null ) {
             log.debug("outputFile parameter found. Using it to store the result.");
-            new Recess(files, getRecessConfig(), outputFile, true, getJavascriptFilesDirectory(), outputDirectory).run();
+            new Recess(new WrappingConsoleFactory(MavenConsole.fromMavenLog(log)),files, getRecessConfig(),
+                    outputFile, true, getJavascriptFilesDirectory(), outputDirectory).run();
 
         } else if ( outputDirectory != null  ) {
 
             log.debug("outputFile parameter not found. Using outputDirectory and changing the extension " +
                     "of the contained files to css.");
 
-            new Recess(files, getRecessConfig(), null, false, getJavascriptFilesDirectory(), outputDirectory).run();
+            new Recess(new WrappingConsoleFactory(MavenConsole.fromMavenLog(log)),files, getRecessConfig(),
+                    null, false, getJavascriptFilesDirectory(), outputDirectory).run();
 
         } else {
             throw new MojoExecutionException("Error: Either outputFile or outputDirectory should be set.");

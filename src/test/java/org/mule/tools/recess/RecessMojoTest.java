@@ -24,6 +24,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.mockito.MockitoAnnotations;
+import org.mule.tools.rhinodo.impl.SystemOutConsole;
+import org.mule.tools.rhinodo.impl.WrappingConsoleFactory;
 import org.sonatype.plexus.build.incremental.BuildContext;
 
 import java.io.File;
@@ -83,7 +85,7 @@ public class RecessMojoTest extends AbstractMojoTestCase {
 
     @Test
     public void testExecution() throws Exception {
-        new Recess(new Object[] {helloLessFile.getAbsoluteFile().toString()}, mojo.getRecessConfig(), null, false, "target/rhinodo", null).run();
+        new Recess(new WrappingConsoleFactory(new SystemOutConsole()), new Object[] {helloLessFile.getAbsoluteFile().toString()}, mojo.getRecessConfig(), null, false, "target/rhinodo", null).run();
     }
 
 }
