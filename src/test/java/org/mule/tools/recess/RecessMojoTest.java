@@ -27,8 +27,8 @@ public class RecessMojoTest extends AbstractMojoTestCase {
     private RecessMojo mojo;
     private File sourceDirectory = new File("target/source");
     private String outputDirectory = "target/output";
-    private File helloLessFile = new File(outputDirectory, "hello.less");
-    private File helloCssFile = new File(sourceDirectory, "hello.css");
+    private File helloLessFile = new File(outputDirectory, "hello.less").getAbsoluteFile();
+    private File helloCssFile = new File(sourceDirectory.getAbsoluteFile(), "hello.css");
     private File outputFile;
     private boolean stripColors;
     private boolean noIDs;
