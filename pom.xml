@@ -7,7 +7,10 @@
     <artifactId>recess-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
     <version>1.0-SNAPSHOT</version>
+
+
     <name>Recess Maven Plugin</name>
+    <description>Compile and compress less/css files with Recess</description>
 
     <prerequisites>
         <maven>3.0.3</maven>
@@ -21,7 +24,7 @@
 
     <properties>
         <license.plugin.version>1.8.0</license.plugin.version>
-        <maven.version>3.0.4</maven.version>
+        <maven.version>3.0.3</maven.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -107,7 +110,7 @@
                 <artifactId>maven-license-plugin</artifactId>
                 <version>${license.plugin.version}</version>
                 <configuration>
-                    <header>LICENSE.md</header>
+                    <header>LICENSE_HEADER.txt</header>
                     <excludes>
                         <exclude>LICENSE.md</exclude>
                         <exclude>target/**</exclude>
@@ -117,28 +120,19 @@
                         <exclude>**/*.list</exclude>
                         <exclude>**/*.properties</exclude>
                         <exclude>**/*.xml</exclude>
-                        <exclude>**/*.sample</exclude>
-                        <exclude>**/*.csv</exclude>
                         <exclude>**/*.css</exclude>
-                        <exclude>**/*.fmt</exclude>
+                        <exclude>**/*.groovy</exclude>
+                        <exclude>**/.name</exclude>
                         <exclude>**/*.less</exclude>
                         <exclude>.checkstyle</exclude>
                         <exclude>README.md</exclude>
-                        <exclude>
-                            src/test/resources/delimited-data/stateTaxesLookup
-                        </exclude>
-                        <exclude>src/main/resources/clover-plugins/**</exclude>
                     </excludes>
-                    <mapping>
-                        <grf>XML_STYLE</grf>
-                    </mapping>
                     <strictCheck>true</strictCheck>
                 </configuration>
                 <executions>
                     <execution>
                         <phase>validate</phase>
                         <goals>
-                            <goal>format</goal>
                             <goal>check</goal>
                         </goals>
                     </execution>
