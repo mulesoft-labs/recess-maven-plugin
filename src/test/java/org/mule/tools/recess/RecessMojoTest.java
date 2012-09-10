@@ -49,6 +49,9 @@ public class RecessMojoTest extends AbstractMojoTestCase {
         helloLessFile = File.createTempFile("hello", ".less").getAbsoluteFile();
         helloCssFile = File.createTempFile("hello", ".css").getAbsoluteFile();
 
+        helloCssFile.deleteOnExit();
+        helloLessFile.deleteOnExit();
+
         mojo = new RecessMojo();
 
         FileUtils.writeStringToFile(helloLessFile, ".my-class {" +
@@ -73,7 +76,7 @@ public class RecessMojoTest extends AbstractMojoTestCase {
 
     @Test
     public void testExecution() throws Exception {
-        new Recess(new WrappingConsoleFactory(new SystemOutConsole()), new Object[] {helloLessFile.getAbsoluteFile().toString()}, mojo.getRecessConfig(), helloCssFile.getAbsolutePath(), false, "target/rhinodo", null).run();
+        new Recess(new WrappingConsoleFactory(new SystemOutConsole()), new Object[] {helloLessFile.getAbsoluteFile().toString()}, mojo.getRecessConfig(), helloCssFile.getAbsolutePath(), true, "target/rhinodo", null).run();
     }
 
 }
